@@ -3,12 +3,17 @@ const app = express()
 const mongoose = require('mongoose')
 const friendRoute = require ('./route/friendRoute')
 const cors = require('cors')
-app.use(cors())
+// app.use(cors())
 app.use(express.json())
 require('dotenv').config()
 const DB_PATH = process.env.DB_URL
 const PORT = process.env.PORT || 3003
 
+app.use(cors({
+  origin: 'https://merndeploy-5xzx.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}))
 
 app.get("/",(req,res)=>{
     res.send("Home Page")
