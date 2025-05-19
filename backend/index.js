@@ -8,8 +8,6 @@ app.use(express.json())
 require('dotenv').config()
 const DB_PATH = process.env.DB_URL
 const PORT = process.env.PORT || 3003
-
-const cors = require("cors");
 app.use(cors({
   origin: "*", 
   methods: ["GET", "POST", "PUT", "DELETE"],
