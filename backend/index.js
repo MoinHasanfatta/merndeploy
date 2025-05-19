@@ -9,11 +9,11 @@ require('dotenv').config()
 const DB_PATH = process.env.DB_URL
 const PORT = process.env.PORT || 3003
 
+const cors = require("cors");
 app.use(cors({
-  origin: 'https://merndeploy-5xzx.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
-}))
+  origin: "*", 
+  methods: ["GET", "POST", "PUT", "DELETE"],
+}));
 
 app.get("/",(req,res)=>{
     res.send("Home Page")
